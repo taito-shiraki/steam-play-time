@@ -31,6 +31,7 @@ playwright-report/
 
 # Playwright MCP スクリーンショット
 *.png
+!frontend/public/og-image.png
 .playwright-mcp/
 
 # MCP設定

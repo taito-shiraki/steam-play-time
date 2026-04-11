@@ -4,7 +4,114 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SteamStats - Steamプレイ時間ビジュアライザー</title>
+
+    <!-- Primary Meta Tags -->
+    <title>SteamStats - Steamプレイ時間分析ツール</title>
+    <meta name="title" content="SteamStats - Steamプレイ時間分析ツール" />
+    <meta name="description" content="Steam IDを入力するだけで、プレイ時間TOP20チャート、ジャンル別分析、コスパランキング、フレンド比較を即座に表示。無料で使えるSteamプレイ時間ビジュアライザーです。" />
+    <meta name="keywords" content="Steam,プレイ時間,分析,統計,ゲーム,チャート,ランキング,SteamStats" />
+    <meta name="author" content="SteamStats" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://steam-play-time.vercel.app/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://steam-play-time.vercel.app/" />
+    <meta property="og:title" content="SteamStats - Steamプレイ時間分析ツール" />
+    <meta property="og:description" content="Steam IDを入力するだけで、プレイ時間TOP20チャート、ジャンル別分析、コスパランキング、フレンド比較を即座に表示。無料で使えるSteamプレイ時間ビジュアライザーです。" />
+    <meta property="og:image" content="https://steam-play-time.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SteamStats - Steamプレイ時間分析ツール" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="SteamStats" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://steam-play-time.vercel.app/" />
+    <meta name="twitter:title" content="SteamStats - Steamプレイ時間分析ツール" />
+    <meta name="twitter:description" content="Steam IDを入力するだけで、プレイ時間TOP20チャート、ジャンル別分析、コスパランキングを即座に表示。" />
+    <meta name="twitter:image" content="https://steam-play-time.vercel.app/og-image.png" />
+
+    <!-- JSON-LD: WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SteamStats",
+      "description": "Steam IDを入力するだけで、プレイ時間TOP20チャート、ジャンル別分析、コスパランキング、フレンド比較を即座に表示できる無料のSteamプレイ時間ビジュアライザー。",
+      "url": "https://steam-play-time.vercel.app/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "JPY"
+      },
+      "inLanguage": ["ja", "en"],
+      "keywords": "Steam,プレイ時間,統計,分析,ゲーム,チャート"
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Steamのプレイ時間はどうやって確認できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Steam IDまたはプロフィールURLを入力するだけで、全ゲームのプレイ時間を一覧表示できます。TOP20チャート、ジャンル別分析、コスパランキングなど多角的に確認できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Steam IDはどこで確認できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Steamクライアントのプロフィールページ、またはsteamcommunity.comのプロフィールURLから確認できます。17桁の数字（SteamID64）またはカスタムURL（steamcommunity.com/id/yourname）の形式に対応しています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "プロフィールを公開にする必要がありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。Steam Web APIの仕様上、プロフィールの「ゲームの詳細」が「公開」に設定されている必要があります。Steamクライアントの設定から変更できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "無料で使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、すべての機能を無料でご利用いただけます。アカウント登録なしでも基本分析が可能です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "友人とプレイ時間を比較できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。フレンド比較機能で、2人のSteam IDを入力するだけで共通ゲームのプレイ時間を比較できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "データはどのくらいの頻度で更新されますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Steam APIからリアルタイムでデータを取得します。キャッシュは15分〜1時間で更新されるため、ほぼ最新の情報が表示されます。"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

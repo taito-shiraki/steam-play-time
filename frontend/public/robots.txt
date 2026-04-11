@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://steam-play-time.vercel.app/sitemap.xml

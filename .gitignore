@@ -1,0 +1,40 @@
+# 環境変数ファイル（シークレットを含むため絶対にコミットしない）
+.env
+.env.local
+.env.production
+.env.production.local
+
+# OS生成ファイル
+.DS_Store
+Thumbs.db
+
+# エディタ設定
+.vscode/
+.idea/
+
+# フロントエンド
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+
+# バックエンド
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.pyc
+backend/**/*.pyc
+backend/data/app.db
+
+# テスト成果物
+test-results/
+playwright-report/
+
+# Playwright MCP スクリーンショット
+*.png
+.playwright-mcp/
+
+# MCP設定
+.mcp.json
+
+# Playwright テスト（evaluator生成）
+playwright-test/

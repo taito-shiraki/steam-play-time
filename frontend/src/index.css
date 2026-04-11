@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-steam-dark: #1b2838;
+  --color-steam-darker: #171a21;
+  --color-steam-blue: #1a9fff;
+  --color-steam-light-blue: #66c0f4;
+  --color-steam-gray: #c6d4df;
+  --color-steam-dim: #acb2b8;
+}
+
+:root {
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: #1b2838;
+  color: #c6d4df;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

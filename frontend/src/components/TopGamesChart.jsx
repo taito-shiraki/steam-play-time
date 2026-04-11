@@ -123,8 +123,6 @@ export default function TopGamesChart({ games }) {
     }))
     // 降順ソート（プレイ時間多い順、同一時間はゲーム名アルファベット順）
     .sort((a, b) => b.hours - a.hours || a.name.localeCompare(b.name))
-    // reverse: 横棒グラフでは配列末尾が上に来るため
-    .reverse()
 
   const maxHours = Math.max(...data.map((d) => d.hours))
 
@@ -176,7 +174,7 @@ export default function TopGamesChart({ games }) {
             {data.map((entry, index) => (
               <Cell
                 key={entry.appid}
-                fill={index === data.length - 1 ? '#f4b63d' : '#1a9fff'}
+                fill={index === 0 ? '#f4b63d' : '#1a9fff'}
               />
             ))}
             <LabelList

@@ -26,7 +26,7 @@ jobs:
       - name: Ping Render backend health endpoint
         run: |
           set -e
-          URL="https://steamstats-api.onrender.com/health"
+          URL="https://steam-play-time-api.onrender.com/health"
           echo "Pinging $URL ..."
           # -f: HTTP エラー時に失敗扱い
           # -s: プログレス非表示

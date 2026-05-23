@@ -1,0 +1,45 @@
+name: Keep Render Awake
+
+# Render free tier は 15 分間アクセスがないとインスタンスが停止し、
+# 復帰時に 30-60 秒の cold start が発生する。
+# 5 分間隔で /health にアクセスしてスリープを回避する。
+#
+# 注意: Render はドキュメントで "don't artificially keep your free
+# service awake" と記載している(明示的禁止ではないがグレー)。
+# 規約改定リスクが顕在化したら本ワークフローを削除すれば即停止できる。
+#
+# コスト: public repo なので GitHub Actions 無料・無制限。
+
+on:
+  schedule:
+    # 5 分間隔 (UTC)。GitHub Actions の cron はピーク時 5-15 分遅延するため、
+    # 15 分スリープ閾値を確実に下回るには */5 が安全圏。
+    - cron: '*/5 * * * *'
+  # Actions タブから手動実行できるようにする(初回動作確認用)
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Ping Render backend health endpoint
+        run: |
+          set -e
+          URL="https://steamstats-api.onrender.com/health"
+          echo "Pinging $URL ..."
+          # -f: HTTP エラー時に失敗扱い
+          # -s: プログレス非表示
+          # -S: エラー時のみメッセージ表示
+          # -L: リダイレクト追従
+          # --max-time 60: cold start からの復帰を最大 60 秒待つ
+          # --retry 2: 一時的な失敗時に最大 2 回リトライ
+          # --retry-delay 5: リトライ間隔 5 秒
+          response=$(curl -fsSL \
+            --max-time 60 \
+            --retry 2 \
+            --retry-delay 5 \
+            -w "\nHTTP_STATUS:%{http_code}\nTIME_TOTAL:%{time_total}s\n" \
+            "$URL")
+          echo "$response"
+          echo "Ping succeeded."
